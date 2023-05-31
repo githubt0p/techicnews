@@ -12,16 +12,21 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="..">Back to home</a>
+      <a class="navbar-brand" href="..">На главную страницу</a>
     </div>
   </nav>
 </div>
 <form method = "post">
-<input type = "text" placeholder="Заголовок поста" class="form-control"><br>
-<textarea class = "form-control" placeholder = "Текст Поста"></textarea>
-<input type = date class = "form-control"><br>
-<input type = time class = "form-control"><br>
-<button class = "btn btn - success" type = submit>Добавить Пост</button>
+    {% csrf_token %}
+    {{ form.title }}
+    {{ form.text }}
+    {{ form.date }}
+    <input type = "text" placeholder="Заголовок поста" class="form-control"><br>
+    <textarea class = "form-control" placeholder = "Текст Поста"></textarea>
+    <input type = date class = "form-control"><br>
+    <input type = time class = "form-control"><br>
+    <button class = "btn btn - success" type = submit>Добавить Пост</button>
+    <span>{{ error }}</span>
 </form>
 </body>
 </html>
